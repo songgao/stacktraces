@@ -1,6 +1,6 @@
 # stacktraces
 
-[![GoDoc](https://godoc.org/github.com/songgao/print-stacktraces?status.svg)](http://godoc.org/github.com/songgao/print-stracktraces)
+[![GoDoc](https://godoc.org/github.com/songgao/stacktraces?status.svg)](http://godoc.org/github.com/songgao/stacktraces)
 
 `stacktraces` is a package that makes it easier to bluntly print stacktraces of
 all running Go routines on specific signals. Some additional packages are also
@@ -20,7 +20,7 @@ package main
 import (
 	"time"
 
-	_ "github.com/songgao/print-stracktraces/on/SIGUSR2"
+	_ "github.com/songgao/stacktraces/on/SIGUSR2"
 )
 
 func main() {
@@ -43,7 +43,7 @@ The process keeps running but prints following to `stderr`:
 ```
 $ go build && ./example
 --- contention:
-cycles/second=2900010410
+cycles/second=2900012405
 goroutine 7 [running]:
 runtime/pprof.writeGoroutineStacks(0x25f1c0, 0xc82002a018, 0x0, 0x0)
 	/Users/songgao/go/src/runtime/pprof/pprof.go:516 +0x84
@@ -51,10 +51,10 @@ runtime/pprof.writeGoroutine(0x25f1c0, 0xc82002a018, 0x2, 0x0, 0x0)
 	/Users/songgao/go/src/runtime/pprof/pprof.go:505 +0x46
 runtime/pprof.(*Profile).WriteTo(0x1c1500, 0x25f1c0, 0xc82002a018, 0x2, 0x0, 0x0)
 	/Users/songgao/go/src/runtime/pprof/pprof.go:236 +0xd4
-github.com/songgao/print-stracktraces.Set.func1(0xc820056060, 0x25f1c0, 0xc82002a018)
-	/Users/songgao/gopath/src/github.com/songgao/print-stracktraces/stacktraces.go:71 +0xfa
-created by github.com/songgao/print-stracktraces.Set
-	/Users/songgao/gopath/src/github.com/songgao/print-stracktraces/stacktraces.go:74 +0xcd
+github.com/songgao/stacktraces.Set.func1(0xc820056060, 0x25f1c0, 0xc82002a018)
+	/Users/songgao/gopath/src/github.com/songgao/stacktraces/stacktraces.go:71 +0xfa
+created by github.com/songgao/stacktraces.Set
+	/Users/songgao/gopath/src/github.com/songgao/stacktraces/stacktraces.go:74 +0xcd
 
 goroutine 1 [sleep]:
 time.Sleep(0xdf8475800)
@@ -83,27 +83,27 @@ runtime.goexit()
 	/Users/songgao/go/src/runtime/asm_amd64.s:1998 +0x1
 heap profile: 1: 1048576 [1: 1048576] @ heap/1048576
 1: 1048576 [1: 1048576] @ 0x3f4e5 0x817a5 0x816e6 0x7d064 0x7b53a 0x5a461
-#	0x817a5	runtime/pprof.writeGoroutineStacks+0x45			/Users/songgao/go/src/runtime/pprof/pprof.go:514
-#	0x816e6	runtime/pprof.writeGoroutine+0x46			/Users/songgao/go/src/runtime/pprof/pprof.go:505
-#	0x7d064	runtime/pprof.(*Profile).WriteTo+0xd4			/Users/songgao/go/src/runtime/pprof/pprof.go:236
-#	0x7b53a	github.com/songgao/print-stracktraces.Set.func1+0xfa	/Users/songgao/gopath/src/github.com/songgao/print-stracktraces/stacktraces.go:71
+#	0x817a5	runtime/pprof.writeGoroutineStacks+0x45		/Users/songgao/go/src/runtime/pprof/pprof.go:514
+#	0x816e6	runtime/pprof.writeGoroutine+0x46		/Users/songgao/go/src/runtime/pprof/pprof.go:505
+#	0x7d064	runtime/pprof.(*Profile).WriteTo+0xd4		/Users/songgao/go/src/runtime/pprof/pprof.go:236
+#	0x7b53a	github.com/songgao/stacktraces.Set.func1+0xfa	/Users/songgao/gopath/src/github.com/songgao/stacktraces/stacktraces.go:71
 
 
 # runtime.MemStats
-# Alloc = 1161864
-# TotalAlloc = 1161864
+# Alloc = 1163176
+# TotalAlloc = 1163176
 # Sys = 4458744
 # Lookups = 3
-# Mallocs = 299
+# Mallocs = 306
 # Frees = 22
-# HeapAlloc = 1161864
+# HeapAlloc = 1163176
 # HeapSys = 1671168
-# HeapIdle = 163840
-# HeapInuse = 1507328
+# HeapIdle = 147456
+# HeapInuse = 1523712
 # HeapReleased = 0
-# HeapObjects = 277
+# HeapObjects = 284
 # Stack = 425984 / 425984
-# MSpan = 6720 / 16384
+# MSpan = 6960 / 16384
 # MCache = 4800 / 16384
 # BuckHashSys = 1442264
 # NextGC = 4194304

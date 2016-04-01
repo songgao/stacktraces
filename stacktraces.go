@@ -13,7 +13,7 @@
 //   	"syscall"
 //   	"time"
 //
-//   	"github.com/songgao/print-stracktraces"
+//   	"github.com/songgao/stacktraces"
 //   )
 //
 //   func main() {
@@ -36,7 +36,7 @@
 //   import (
 //   	"time"
 //
-//   	_ "github.com/songgao/print-stracktraces/on/SIGUSR1"
+//   	_ "github.com/songgao/-stacktraces/on/SIGUSR1"
 //   )
 //
 //   func main() {

@@ -1,5 +1,7 @@
 # stacktraces
 
+[![GoDoc](https://godoc.org/github.com/songgao/print-stacktraces?status.svg)](http://godoc.org/github.com/songgao/print-stracktraces)
+
 `stacktraces` is a package that makes it easier to bluntly print stacktraces of
 all running Go routines on specific signals. Some additional packages are also
 included for automatically setting up for `SIGUSR1`, `SIGUSR2`, `SIGTERM`, and

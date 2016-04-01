@@ -4,7 +4,7 @@ import (
 	"os"
 	"syscall"
 
-	"github.com/songgao/print-stacktraces"
+	"github.com/songgao/stacktraces"
 )
 
 func init() {

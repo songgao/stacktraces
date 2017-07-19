@@ -46,6 +46,7 @@
 package stacktraces
 
 import (
+	"fmt"
 	"io"
 	"os"
 	"os/signal"
@@ -68,7 +69,9 @@ func Set(writer io.Writer, signals ...syscall.Signal) {
 	go func() {
 		for range c {
 			for _, p := range pprof.Profiles() {
+				fmt.Fprintf(writer, "\n======== START Profile: %s ========\n\n", p.Name())
 				_ = p.WriteTo(writer, 2)
+				fmt.Fprintf(writer, "\n======== END   Profile: %s ========\n\n", p.Name())
 			}
 		}
 	}()
